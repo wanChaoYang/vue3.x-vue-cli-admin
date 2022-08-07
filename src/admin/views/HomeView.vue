@@ -33,8 +33,11 @@ export default defineComponent({
   },
   setup() {
     const store = mainStore();
+    interface MyObject {
+      [key: string]: string;
+    }
     const tagsList = computed(() => {
-      return store.tagsList.map((item: any) => item.name);
+      return store.tagsList.map((item: MyObject) => item.name);
     });
     const collapse = computed(() => store.collapse);
     return {

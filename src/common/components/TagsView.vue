@@ -40,6 +40,9 @@ import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 const store = mainStore();
 export default {
   setup() {
+    interface MyObject {
+      [key: string]: string;
+    }
     const route = useRoute();
     const router = useRouter();
     const { tagsList } = storeToRefs(store);
@@ -53,9 +56,9 @@ export default {
     });
 
     //关闭单个tags
-    const closeTags = (delItem: any): void => {
-      const dataList: Array<any> = store.tagsList.filter(
-        (item: any) => item.name != delItem.name
+    const closeTags = (delItem: MyObject): void => {
+      const dataList: Array<MyObject> = store.tagsList.filter(
+        (item: MyObject) => item.name != delItem.name
       );
       store.$patch((state: any) => {
         state.tagsList = dataList;
@@ -95,7 +98,7 @@ export default {
 
     // 关闭其他标签
     const closeOther = () => {
-      const curItem = store.tagsList.filter((item: any): any => {
+      const curItem = store.tagsList.filter((item: MyObject) => {
         return item.path === route.fullPath;
       });
       store.$patch((state) => {
