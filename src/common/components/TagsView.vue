@@ -7,7 +7,9 @@
         :class="{ active: isActive(item.path) }"
         :key="index"
       >
-        <router-link :to="item.path" class="tags-li-title">{{ item.title }}</router-link>
+        <router-link :to="item.path" class="tags-li-title">{{
+          item.title
+        }}</router-link>
         <span class="tags-li-icon" @click="closeTags(item)">
           <el-icon><Close /></el-icon>
         </span>
@@ -32,7 +34,7 @@
 
 <script lang="ts">
 import { computed, onMounted } from "vue";
-import { mainStore } from "@/store/index";
+import { mainStore } from "@ADMIN/store/index";
 import { storeToRefs } from "pinia";
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 const store = mainStore();
@@ -42,7 +44,7 @@ export default {
     const router = useRouter();
     const { tagsList } = storeToRefs(store);
     const showTags = computed(() => tagsList.value.length > 0);
-    const isActive = (path) => {
+    const isActive = (path: string) => {
       return path === route.fullPath;
     };
 
@@ -51,9 +53,11 @@ export default {
     });
 
     //关闭单个tags
-    const closeTags = (delItem): void => {
-      const dataList = store.tagsList.filter((item) => item.name != delItem.name);
-      store.$patch((state) => {
+    const closeTags = (delItem: any): void => {
+      const dataList: Array<any> = store.tagsList.filter(
+        (item: any) => item.name != delItem.name
+      );
+      store.$patch((state: any) => {
         state.tagsList = dataList;
       });
       const item = dataList[dataList.length - 1];
@@ -65,10 +69,12 @@ export default {
     };
 
     //设置tags
-    const setTags = (route): void => {
-      const isExist: boolean = store.tagsList.some((item) => item.path == route.fullPath);
+    const setTags = (route: any): void => {
+      const isExist: boolean = store.tagsList.some(
+        (item: any) => item.path == route.fullPath
+      );
       if (!isExist) {
-        store.$patch((state) => {
+        store.$patch((state: any) => {
           state.tagsList.push({
             name: route.name,
             title: route.meta.name,
@@ -83,13 +89,13 @@ export default {
     });
 
     //标签选项
-    const handleTags = (command) => {
+    const handleTags = (command: string) => {
       command === "other" ? closeOther() : closeAll();
     };
 
     // 关闭其他标签
     const closeOther = () => {
-      const curItem = store.tagsList.filter((item) => {
+      const curItem = store.tagsList.filter((item: any): any => {
         return item.path === route.fullPath;
       });
       store.$patch((state) => {

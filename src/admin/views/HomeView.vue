@@ -22,7 +22,7 @@ import { defineComponent, computed } from "vue";
 import HeaderView from "@COMMON/components/HeaderView.vue";
 import SubMenu from "@COMMON/components/SubMenu.vue";
 import TagsView from "@COMMON/components/TagsView.vue";
-import { mainStore } from "../store/index";
+import { mainStore } from "@ADMIN/store/index";
 
 export default defineComponent({
   name: "HomeView",
@@ -33,10 +33,10 @@ export default defineComponent({
   },
   setup() {
     const store = mainStore();
-    const tagsList: Array<string> = computed(() => {
-      return store.tagsList.map((item) => item.name);
+    const tagsList = computed(() => {
+      return store.tagsList.map((item: any) => item.name);
     });
-    const collapse: boolean = computed(() => store.collapse);
+    const collapse = computed(() => store.collapse);
     return {
       tagsList,
       collapse,

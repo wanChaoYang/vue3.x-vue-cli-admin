@@ -14,7 +14,9 @@
         <template v-if="item.subs">
           <el-sub-menu :index="item.index" :key="item.index">
             <template #title>
-              <el-icon v-if="item.icon == 'FolderOpened'"><FolderOpened /></el-icon>
+              <el-icon v-if="item.icon == 'FolderOpened'"
+                ><FolderOpened
+              /></el-icon>
               <el-icon v-else-if="item.icon == 'Setting'"><Setting /></el-icon>
               <span>{{ item.title }}</span>
             </template>
@@ -46,7 +48,9 @@
             <el-icon v-else-if="item.icon == 'Grid'"><Grid /></el-icon>
             <el-icon v-else-if="item.icon == 'Link'"><Link /></el-icon>
             <el-icon v-else-if="item.icon == 'PieChart'"><PieChart /></el-icon>
-            <el-icon v-else-if="item.icon == 'UserFilled'"><UserFilled /></el-icon>
+            <el-icon v-else-if="item.icon == 'UserFilled'"
+              ><UserFilled
+            /></el-icon>
             <el-icon v-else><Menu /></el-icon>
             <template #title>{{ item.title }}</template>
           </el-menu-item>
@@ -59,7 +63,7 @@
 <script lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { mainStore } from "@/store/index";
+import { mainStore } from "@ADMIN/store/index";
 import { submenu } from "@COMMON/const/index";
 export default {
   setup() {
@@ -68,7 +72,7 @@ export default {
       return route.path;
     });
     const store = mainStore();
-    const collapse: boolean = computed(() => store.collapse);
+    const collapse = computed(() => store.collapse);
     return {
       submenu,
       onRoutes,

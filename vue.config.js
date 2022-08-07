@@ -18,6 +18,7 @@ module.exports = defineConfig({
       alias: {
         "@": path.resolve(__dirname, `./src/${config.name}`),
         "@COMMON": path.resolve(__dirname, `./src/common`),
+        "@ADMIN": path.resolve(__dirname, `./src/admin`),
       },
       extensions: [ '.js', '.vue', 'ts' ],//这三种文件格式可以不写后缀名
       modules: [ "node_modules" ]
@@ -25,7 +26,7 @@ module.exports = defineConfig({
   },
   devServer: {
     port: config.port,
-    host:"localhost",
+    host: "localhost",
     hot: false,
     open: true,
   },
