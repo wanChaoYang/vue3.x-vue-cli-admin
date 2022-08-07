@@ -7,12 +7,12 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run serve --project=admin
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run build --project=admin
 ```
 
 ### Lints and fixes files
