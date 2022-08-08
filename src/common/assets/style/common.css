@@ -251,7 +251,7 @@
 }
 
 .bg-green {
-    background-color: #008000;
+    background-color: #64d572;
 }
 
 .bg-lightgreen {
@@ -259,7 +259,7 @@
 }
 
 .bg-blue {
-    background-color: #0a669b;
+    background-color: #2d8cf0;
 }
 
 .bg-purple {
@@ -269,6 +269,70 @@
 .bg-mengban {
     background-color: rgba(68, 68, 68, 0.6);
 }
+
+.color-222 {
+    color: #222;
+}
+.color-333{
+    color: #333;
+}
+.color-999{
+    color: #999;
+}
+
+.color-blue {
+    color: #2d8cf0;
+}
+
+.color-purple {
+    color: #800080;
+}
+
+.color-green {
+    color: #90EE90;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.font20 {
+    font-size: 20px;
+}
+
+.font22 {
+    font-size: 22px;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.font26 {
+    font-size: 26px;
+}
+
+.font28 {
+    font-size: 28px;
+}
+
+.font30 {
+    font-size: 30px;
+}
+
+
 
 .radius0 {
     border-radius: 0;

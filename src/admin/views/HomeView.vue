@@ -23,7 +23,9 @@ import HeaderView from "@COMMON/components/HeaderView.vue";
 import SubMenu from "@COMMON/components/SubMenu.vue";
 import TagsView from "@COMMON/components/TagsView.vue";
 import { mainStore } from "@ADMIN/store/index";
-
+interface MyObject {
+  [key: string]: string;
+}
 export default defineComponent({
   name: "HomeView",
   components: {
@@ -33,9 +35,6 @@ export default defineComponent({
   },
   setup() {
     const store = mainStore();
-    interface MyObject {
-      [key: string]: string;
-    }
     const tagsList = computed(() => {
       return store.tagsList.map((item: MyObject) => item.name);
     });
@@ -57,6 +56,13 @@ export default defineComponent({
   padding-bottom: 30px;
   transition: left 0.3s ease-in-out;
   background: #f0f0f0;
+  .content{
+    width: auto;
+    height: 100%;
+    padding: 15px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+  }
 }
 .content-collapse {
   left: 65px !important;

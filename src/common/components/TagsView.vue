@@ -38,11 +38,11 @@ import { mainStore } from "@ADMIN/store/index";
 import { storeToRefs } from "pinia";
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 const store = mainStore();
+interface MyObject {
+  [key: string]: string;
+}
 export default {
   setup() {
-    interface MyObject {
-      [key: string]: string;
-    }
     const route = useRoute();
     const router = useRouter();
     const { tagsList } = storeToRefs(store);
