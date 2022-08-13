@@ -4,27 +4,33 @@ export const submenu = [
     index: "/systemHome",
     title: "系统首页",
   },
+
   {
-    icon: "Grid",
-    index: "/table",
-    title: "基础表格",
-  },
-  {
-    icon: "Link",
-    index: "/tabs",
-    title: "tab选项卡",
+    icon: "FolderOpened",
+    index: "1",
+    title: "订单管理",
+    subs: [
+      {
+        index: "/table",
+        title: "订单列表",
+      },
+    ],
   },
   {
     icon: "FolderOpened",
-    index: "3",
-    title: "表单相关",
+    index: "2",
+    title: "商品管理",
     subs: [
       {
-        index: "/form",
-        title: "基本表单",
+        index: "/goodsList",
+        title: "商品列表",
       },
       {
-        index: "/upload",
+        index: "/addGoods",
+        title: "商品添加",
+      },
+      {
+        index: "/fileUpload",
         title: "文件上传",
       },
       {
@@ -32,7 +38,7 @@ export const submenu = [
         title: "三级菜单",
         subs: [
           {
-            index: "/editor",
+            index: "/editorView",
             title: "富文本编辑器",
           },
         ],
@@ -41,17 +47,22 @@ export const submenu = [
   },
   {
     icon: "PieChart",
-    index: "/charts",
+    index: "/chartView",
     title: "schart图表",
+  },
+  {
+    icon: "Link",
+    index: "/message",
+    title: "信息管理",
   },
   {
     icon: "Setting",
     index: "7",
-    title: "错误处理",
+    title: "权限管理",
     subs: [
       {
         index: "/permission",
-        title: "权限测试",
+        title: "权限设置",
       },
       {
         index: "/404",
@@ -61,7 +72,7 @@ export const submenu = [
   },
   {
     icon: "UserFilled",
-    index: "/donate",
+    index: "/authorSupport",
     title: "支持作者",
   },
 ];
