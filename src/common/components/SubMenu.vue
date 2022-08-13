@@ -14,11 +14,11 @@
         <template v-if="item.subs">
           <el-sub-menu :index="item.index" :key="item.index">
             <template #title>
-              <el-icon v-if="item.icon == 'FolderOpened'"
-                ><FolderOpened
-              /></el-icon>
+              <el-icon v-if="item.icon == 'Printer'"><Printer /></el-icon>
               <el-icon v-else-if="item.icon == 'Setting'"><Setting /></el-icon>
+              <el-icon v-else-if="item.icon == 'Coin'"><Coin /></el-icon>
               <span>{{ item.title }}</span>
+           
             </template>
             <template v-for="subItem in item.subs">
               <el-sub-menu

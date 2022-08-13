@@ -6,7 +6,7 @@ export const submenu = [
   },
 
   {
-    icon: "FolderOpened",
+    icon: "Printer",
     index: "1",
     title: "订单管理",
     subs: [
@@ -17,7 +17,7 @@ export const submenu = [
     ],
   },
   {
-    icon: "FolderOpened",
+    icon: "Coin",
     index: "2",
     title: "商品管理",
     subs: [

@@ -4,10 +4,10 @@
     <el-upload
       class="upload-demo"
       drag
-      action="http://jsonplaceholder.typicode.com/api/posts/"
+      action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
       multiple
     >
-      <el-icon><MostlyCloudy /></el-icon>
+      <el-icon class="up-load-filled"><UploadFilled /></el-icon>
       <div class="el-upload-text">
         将文件拖到此处，或
         <em>点击上传</em>
@@ -16,14 +16,6 @@
         <div class="el-upload__tip">只能上传 jpg/png 文件，且不超过 500kb</div>
       </template>
     </el-upload>
-
-    <div class="content-title">支持裁剪</div>
-    <div class="plugins-tips">
-      vue-cropperjs：一个封装了 cropperjs 的 Vue 组件。 访问地址：
-      <a href="https://github.com/Agontuk/vue-cropperjs" target="_blank"
-        >vue-cropperjs</a
-      >
-    </div>
   </div>
 </template>
 
@@ -31,7 +23,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "up-load",
+  name: "upload",
   props: {
     msg: String,
   },
@@ -42,10 +34,14 @@ export default defineComponent({
   padding-bottom: 20px;
   .upload-demo {
     width: 360px;
+    .up-load-filled {
+      font-size: 67px;
+      color: #c0c4cc;
+    }
     .el-upload-text {
       color: #97a8be;
       font-size: 14px;
-      em{
+      em {
         color: #20a0ff;
       }
     }

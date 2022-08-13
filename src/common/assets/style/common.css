@@ -273,10 +273,12 @@
 .color-222 {
     color: #222;
 }
-.color-333{
+
+.color-333 {
     color: #333;
 }
-.color-999{
+
+.color-999 {
     color: #999;
 }
 
@@ -999,6 +1001,10 @@
 
 .flex-align {
     align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
 }
 
 .flex-start {
