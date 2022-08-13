@@ -3,10 +3,12 @@ import SubMenu from "@COMMON/components/SubMenu.vue";
 import TagsView from "@COMMON/components/TagsView.vue";
 import Upload from "./Upload.vue";
 import UploadList from "./UploadList.vue";
+import EditGoods from "./EditGoods.vue";
 export {
   HeaderView,
   SubMenu,
   TagsView,
   Upload,
-  UploadList
+  UploadList,
+  EditGoods
 };

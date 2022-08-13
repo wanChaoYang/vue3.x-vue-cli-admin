@@ -1,0 +1,51 @@
+export const tableData = [
+    {
+        date: '1000',
+        name: 'Tom',
+        price: '50',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+    {
+        date: '100000',
+        name: 'Tom',
+        price: '199',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+    {
+        date: '100001',
+        name: 'Tom',
+        price: '399',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+    {
+        date: '1000002',
+        name: 'Tom',
+        price: '499',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+    {
+        date: '1000002',
+        name: 'Tom',
+        price: '499',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+    {
+        date: '1000002',
+        name: 'Tom',
+        price: '499',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+    {
+        date: '1000002',
+        name: 'Tom',
+        price: '499',
+        img: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        desc: '商品描述',
+    },
+]

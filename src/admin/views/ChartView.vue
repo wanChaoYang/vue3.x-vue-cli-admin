@@ -1,37 +1,31 @@
 <template>
   <div>
     <div class="p-b-15">
-       <el-breadcrumb separator="/">
+      <el-breadcrumb separator="/">
         <el-breadcrumb-item>
-          <el-icon><Folder /></el-icon> 图标
+          <el-icon><PieChart /></el-icon> 图标 vue-schart
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="bg-fff p-v-20 p-both15">
-      <div class="plugins-tips">
-        vue-schart：vue.js封装sChart.js的图表组件。 访问地址：
-        <a href="https://github.com/qdzhaoxiaodao/vue-schart" target="_blank"
-          >vue-schart</a
-        >
-        <div class="flex-dom flex-between">
-          <div class="wid50">
-            <div class="content-title">柱状图</div>
-            <Schart class="schart" canvasId="bar" :options="options1"> </Schart>
-          </div>
-          <div class="wid50">
-            <div class="content-title">折线图</div>
-            <Schart class="schart" canvasId="line" :options="options2"></Schart>
-          </div>
+      <div class="flex-dom flex-between">
+        <div class="wid50">
+          <div class="content-title">柱状图</div>
+          <Schart class="schart" canvasId="bar" :options="options1"> </Schart>
         </div>
-        <div class="flex-dom flex-between">
-          <div class="wid50">
-            <div class="content-title">柱状图</div>
-            <Schart class="schart" canvasId="pie" :options="options3"> </Schart>
-          </div>
-          <div class="wid50">
-            <div class="content-title">折线图</div>
-            <Schart class="schart" canvasId="ring" :options="options4"></Schart>
-          </div>
+        <div class="wid50">
+          <div class="content-title">折线图</div>
+          <Schart class="schart" canvasId="line" :options="options2"></Schart>
+        </div>
+      </div>
+      <div class="flex-dom flex-between">
+        <div class="wid50">
+          <div class="content-title">柱状图</div>
+          <Schart class="schart" canvasId="pie" :options="options3"> </Schart>
+        </div>
+        <div class="wid50">
+          <div class="content-title">折线图</div>
+          <Schart class="schart" canvasId="ring" :options="options4"></Schart>
         </div>
       </div>
     </div>
