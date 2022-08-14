@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="编辑" v-model="props.popsVisible" width="50%">
+  <el-dialog title="编辑" v-model="props.visible" width="50%" @close="close" destroy-on-close>
     <div>
       <div class="wid50">
         <el-form ref="formRef" :rules="rules" :model="form" label-width="80px">
@@ -44,17 +44,24 @@ export default {
   },
   emits: ['handleCancel'],
   props: {
-    popsVisible: {
+    visible: {
       type: Boolean,
       default: false,
     },
   },
   setup(props, ctx) {
-    const editVisible = ref(false)
     const formRef = ref()
     const rules = {
-      name: { required: true, message: '请输入商品名称', trigger: 'blur' },
-      price: { required: true, message: '请输入单价', trigger: 'blur' },
+      name: {
+        required: true,
+        message: '请输入商品名称',
+        trigger: 'blur',
+      },
+      price: {
+        required: true,
+        message: '请输入单价',
+        trigger: 'blur',
+      },
     }
 
     const form = reactive({
@@ -69,7 +76,6 @@ export default {
       formRef.value.validate((valid) => {
         if (valid) {
           ElMessage.success('提交成功！')
-          editVisible.value = false
           ctx.emit('handleCancel', false)
         } else {
           console.log('error submit!')
@@ -77,9 +83,11 @@ export default {
         }
       })
     }
+    const close = () => {
+      ctx.emit('handleCancel', false)
+    }
     //取消
     const handleCancel = () => {
-      editVisible.value = false
       ctx.emit('handleCancel', false)
     }
 
@@ -88,12 +96,7 @@ export default {
       console.log(res)
     }
 
-    //监听props的变化
-    watch(props, (newData, oldData) => {
-      editVisible.value = newData
-    })
     return {
-      editVisible,
       form,
       rules,
       saveEdit,
@@ -101,6 +104,7 @@ export default {
       handleCancel,
       formRef,
       props,
+      close,
     }
   },
 }

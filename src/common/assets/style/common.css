@@ -291,7 +291,10 @@
 }
 
 .color-green {
-    color: #90EE90;
+    color: rgba(129, 204, 92, 1);
+}
+.color-red{
+    color: rgba(245, 108, 108, 1);
 }
 
 .font12 {
