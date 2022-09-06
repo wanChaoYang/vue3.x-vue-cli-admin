@@ -49,7 +49,7 @@ export default {
       default: false,
     },
   },
-  setup(props, ctx) {
+  setup(props: any, ctx: any) {
     const formRef = ref()
     const rules = {
       name: {
@@ -73,7 +73,7 @@ export default {
     //编辑框确认
     const saveEdit = () => {
       if (!formRef) return
-      formRef.value.validate((valid) => {
+      formRef.value.validate((valid: any) => {
         if (valid) {
           ElMessage.success('提交成功！')
           ctx.emit('handleCancel', false)
@@ -92,7 +92,7 @@ export default {
     }
 
     //选择上传图片回调
-    const handleChang = (res) => {
+    const handleChang = (res: any) => {
       console.log(res)
     }
 
