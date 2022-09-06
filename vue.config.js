@@ -2,6 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 const path = require("path")
 const config = require("./src/config/webConfig.js")
 console.log("config", config)
+console.log("config", config)
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: true,
