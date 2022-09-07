@@ -65,7 +65,7 @@ export default {
 
     //提交
     const onSubmit = () => {
-      if (!formRef) return;
+      if (!formRef.value) return;
       formRef.value.validate((valid) => {
         if (valid) {
           ElMessage.success("提交成功！");

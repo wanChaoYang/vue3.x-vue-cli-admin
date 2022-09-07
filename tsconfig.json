@@ -25,7 +25,7 @@
         "src/common/*"
       ],
       "@ADMIN/*": [
-        "src/admin/*"
+        "src/element-plus-admin/*"
       ]
     },
     "lib": [

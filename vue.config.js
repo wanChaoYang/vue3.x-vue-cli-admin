@@ -19,7 +19,7 @@ module.exports = defineConfig({
       alias: {
         "@": path.resolve(__dirname, `./src/${config.name}`),
         "@COMMON": path.resolve(__dirname, `./src/common`),
-        "@ADMIN": path.resolve(__dirname, `./src/admin`),
+        "@ADMIN": path.resolve(__dirname, `./src/element-plus-admin`),
       },
       extensions: [ '.js', '.vue', 'ts' ],//这三种文件格式可以不写后缀名
       modules: [ "node_modules" ]

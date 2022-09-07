@@ -107,7 +107,7 @@ const routes: Array<RouteRecordRaw> = [
             /* webpackChunkName: "systemHome" */ "../views/AuthorSupport.vue"
           ),
         meta: {
-          name: "富文本编辑",
+          name: "个人中心",
         },
       },
       {

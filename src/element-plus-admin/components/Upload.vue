@@ -23,7 +23,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "upload",
+  name: "up-load",
   props: {
     msg: String,
   },

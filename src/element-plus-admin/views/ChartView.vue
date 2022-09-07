@@ -34,7 +34,7 @@
 <script >
 import Schart from "vue-schart";
 export default {
-  name: "schart",
+  name: "s-chart",
   components: { Schart },
   setup() {
     const options1 = {
