@@ -34,7 +34,7 @@
   </el-dialog>
 </template>
 <script lang="ts">
-import { ref, reactive, watch } from 'vue'
+import { ref, reactive } from 'vue'
 import { UploadList } from '@ADMIN/components/index'
 import { ElMessage } from 'element-plus'
 

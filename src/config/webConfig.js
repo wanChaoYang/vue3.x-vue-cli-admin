@@ -1,6 +1,6 @@
 const webConfigs = {
   admin: {
-    name: "admin",
+    name: "element-plus-admin",
     port: "9090",
   },
 };
