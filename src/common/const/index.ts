@@ -73,6 +73,6 @@ export const submenu = [
   {
     icon: "UserFilled",
     index: "/authorSupport",
-    title: "支持作者",
+    title: "个人中心",
   },
 ];

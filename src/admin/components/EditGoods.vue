@@ -50,7 +50,6 @@ export default {
     },
   },
   setup(props: any, ctx: any) {
-    const formRef = ref()
     const rules = {
       name: {
         required: true,
@@ -71,8 +70,9 @@ export default {
       type: '短裤',
     })
     //编辑框确认
+    const formRef = ref()
     const saveEdit = () => {
-      if (!formRef) return
+      if (!formRef.value) return
       formRef.value.validate((valid: any) => {
         if (valid) {
           ElMessage.success('提交成功！')

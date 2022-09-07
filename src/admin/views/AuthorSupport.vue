@@ -1,5 +1,5 @@
 <template>
-<div>作者支持</div>
+<div>个人中心</div>
 </template>
 <script>
  export default{

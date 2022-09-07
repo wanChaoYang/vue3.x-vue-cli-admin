@@ -6,7 +6,7 @@ const webConfigs = {
 };
 
 function getArgv() {
-  console.log("=====", process.env)
+  console.log("=====", process)
   console.log("yyyy=", process.env.npm_config_project)
   // const argv = process.env.npm_config_argv;
   // const original = JSON.parse(argv).original;
@@ -22,5 +22,6 @@ function getArgv() {
   // }
 }
 
+// const webConfig = webConfigs[getArgv()];
 const webConfig = webConfigs[process.env.npm_config_project];
 module.exports = webConfig;
