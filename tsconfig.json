@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "suppressImplicitAnyIndexErrors":true,
+    "suppressImplicitAnyIndexErrors": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
@@ -40,7 +40,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "src/axios.d.ts"
   ],
   "exclude": [
     "node_modules"

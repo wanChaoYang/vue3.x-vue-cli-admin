@@ -2,9 +2,9 @@
   <div class="login flex-dom flex-align flex-center vhgt100">
     <div class="input-container flex-dom flex-center flex-column">
       <div class="admin-title">Vue3后台管理系统</div>
-      <el-form ref="login" label-width="0px" class="pad40">
+      <el-form ref="loginRef" label-width="0px" class="pad40" :model="userInfo" :rules="rules">
         <el-form-item prop="username">
-          <el-input size="large" v-model="username" placeholder="username">
+          <el-input size="large" v-model="userInfo.username" placeholder="请输入用户名">
             <template #prepend>
               <el-button>
                 <el-icon> <User /> </el-icon
@@ -16,8 +16,8 @@
           <el-input
             size="large"
             type="password"
-            placeholder="password"
-            v-model="password"
+            placeholder="密码"
+            v-model="userInfo.password"
             @keyup.enter="submitForm()"
           >
             <template #prepend>
@@ -28,7 +28,7 @@
           </el-input>
         </el-form-item>
         <div class="login-btn">
-          <el-button type="primary" @click="submitForm()">登录</el-button>
+          <el-button type="primary" @click="submitForm(loginRef)">登录</el-button>
         </div>
         <p class="login-tips">Tips : 用户名和密码随便填。</p>
       </el-form>
@@ -37,29 +37,53 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from "vue";
-import { useRouter } from "vue-router";
+import { defineComponent, reactive, ref } from 'vue'
+import type { FormInstance } from 'element-plus'
+import { useRouter } from 'vue-router'
+// import { loginData } from '../types/login'
+import { login } from '@COMMON/http/api'
+
 export default defineComponent({
-  name: "HomeView",
+  name: 'HomeView',
   setup() {
-    const router = useRouter();
+    const router = useRouter()
+    const loginRef = ref<FormInstance>()
+    const rules = {
+      username: [{ required: true, message: '用户名不能为空', trigger: 'blur' }],
+      password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+    }
+
     const userInfo = reactive({
-      username: "",
-      password: "",
-    });
-    function submitForm() {
-      router.push("/systemHome");
+      username: '',
+      password: '',
+    })
+
+    function submitForm(formEl: FormInstance | undefined) {
+      if (!formEl) return
+      formEl.validate((valid) => {
+        if (!valid) return false
+        login(userInfo)
+          .then((res) => {
+            console.log(res)
+            router.push('/systemHome')
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      })
     }
     return {
-      ...toRefs(userInfo),
+      userInfo,
+      rules,
+      loginRef,
       submitForm,
-    };
+    }
   },
-});
+})
 </script>
 <style lang="less">
 .login {
-  background-image: url("@/assets/images/login-bg.jpg");
+  background-image: url('@/assets/images/login-bg.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   .input-container {
