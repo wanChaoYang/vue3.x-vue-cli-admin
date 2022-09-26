@@ -30,7 +30,7 @@
         <div class="login-btn">
           <el-button type="primary" @click="submitForm(loginRef)">登录</el-button>
         </div>
-        <p class="login-tips">Tips : 用户名和密码随便填。</p>
+        <p class="login-tips">Tips : 用户名和密码随便填。{{app.getConfig("baseUrl")}}</p>
       </el-form>
     </div>
   </div>

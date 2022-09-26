@@ -1,15 +1,8 @@
 <template>
   <div class="tags" v-if="showTags">
     <ul>
-      <li
-        class="tags-li"
-        v-for="(item, index) in tagsList"
-        :class="{ active: isActive(item.path) }"
-        :key="index"
-      >
-        <router-link :to="item.path" class="tags-li-title">{{
-          item.title
-        }}</router-link>
+      <li class="tags-li" v-for="(item, index) in tagsList" :class="{ active: isActive(item.path) }" :key="index">
+        <router-link :to="item.path" class="tags-li-title">{{ item.title }}</router-link>
         <span class="tags-li-icon" @click="closeTags(item)">
           <el-icon><Close /></el-icon>
         </span>
@@ -33,86 +26,82 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted } from "vue";
-import { mainStore } from "@ADMIN/store/index";
-import { storeToRefs } from "pinia";
-import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
-const store = mainStore();
+import { computed, onMounted } from 'vue'
+import { mainStore } from '@ADMIN/store/index'
+import { storeToRefs } from 'pinia'
+import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
+const store = mainStore()
 interface MyObject {
-  [key: string]: string;
+  [key: string]: string
 }
 export default {
   setup() {
-    const route = useRoute();
-    const router = useRouter();
-    const { tagsList } = storeToRefs(store);
-    const showTags = computed(() => tagsList.value.length > 0);
+    const route = useRoute()
+    const router = useRouter()
+    const { tagsList } = storeToRefs(store)
+    const showTags = computed(() => tagsList.value.length > 0)
     const isActive = (path: string) => {
-      return path === route.fullPath;
-    };
+      return path === route.fullPath
+    }
 
     onMounted(() => {
-      setTags(route);
-    });
+      setTags(route)
+    })
 
     //关闭单个tags
     const closeTags = (delItem: MyObject): void => {
-      const dataList: Array<MyObject> = store.tagsList.filter(
-        (item: MyObject) => item.name != delItem.name
-      );
+      const dataList: Array<MyObject> = store.tagsList.filter((item: MyObject) => item.name != delItem.name)
       store.$patch((state: any) => {
-        state.tagsList = dataList;
-      });
-      const item = dataList[dataList.length - 1];
+        state.tagsList = dataList
+      })
+      const item = dataList[dataList.length - 1]
       if (item) {
-        delItem.path === route.fullPath && router.push(item.path);
+        delItem.path === route.fullPath && router.push(item.path)
       } else {
-        router.push("/systemHome");
+        router.push('/systemHome')
       }
-    };
+    }
 
     //设置tags
     const setTags = (route: any): void => {
-      const isExist: boolean = store.tagsList.some(
-        (item: any) => item.path == route.fullPath
-      );
+      const isExist: boolean = store.tagsList.some((item: any) => item.path == route.fullPath)
       if (!isExist) {
         store.$patch((state: any) => {
           state.tagsList.push({
             name: route.name,
             title: route.meta.name,
             path: route.fullPath,
-          });
-        });
+          })
+        })
       }
-    };
+    }
 
     onBeforeRouteUpdate((to) => {
-      setTags(to);
-    });
+      setTags(to)
+    })
 
     //标签选项
     const handleTags = (command: string) => {
-      command === "other" ? closeOther() : closeAll();
-    };
+      command === 'other' ? closeOther() : closeAll()
+    }
 
     // 关闭其他标签
     const closeOther = () => {
       const curItem = store.tagsList.filter((item: MyObject) => {
-        return item.path === route.fullPath;
-      });
+        return item.path === route.fullPath
+      })
       store.$patch((state) => {
-        state.tagsList = curItem;
-      });
-    };
+        state.tagsList = curItem
+      })
+    }
 
     // 关闭全部标签
     const closeAll = () => {
-      router.push("/systemHome");
+      router.push('/systemHome')
       store.$patch((state) => {
-        state.tagsList = [];
-      });
-    };
+        state.tagsList = []
+      })
+    }
 
     return {
       isActive,
@@ -121,9 +110,9 @@ export default {
       setTags,
       closeTags,
       handleTags,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="less" scoped>
