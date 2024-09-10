@@ -7,7 +7,7 @@ import { initApp } from "../config/init";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "@COMMON/assets/style/common.css";
-import "@COMMON/assets/style/main.less";
+// import "@COMMON/assets/style/main.less";
 
 // import '@wangeditor/editor/dist/css/style.css' // 引入 css
 (async () => {
